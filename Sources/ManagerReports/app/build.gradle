@@ -20,7 +20,11 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            resValue "bool", "useReleaseSplunkMint", "false"  // do not modify this line!!!
+        }
         release {
+            resValue "bool", "useReleaseSplunkMint", "true"  // do not modify this line!!!
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -29,10 +33,24 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //androis support
     compile 'com.android.support:appcompat-v7:22.2.0'
+
+    //googleanalitics
     compile 'com.google.android.gms:play-services-analytics:7.3.0'
 
     // android annotations
     compile 'org.androidannotations:androidannotations-api:3.3.1'
     apt "org.androidannotations:androidannotations:3.3.1"
+
+    //ormlite
+    compile 'com.j256.ormlite:ormlite-android:4.45'
+
+    // mint
+    compile 'com.splunk.mint:mint:4.2.1'
+
+    // support design
+    compile 'com.android.support:design:22.2.0'
+
 }
