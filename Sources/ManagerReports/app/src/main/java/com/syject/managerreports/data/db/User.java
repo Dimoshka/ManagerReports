@@ -26,7 +26,10 @@ public class User {
     public Meeting meeting;
 
     @DatabaseField(canBeNull = false, foreign = true)
-    public ArrayList<Phone> phone;
+    public ArrayList<Phone> phoneArrayList;
+
+    @DatabaseField(foreign = true)
+    public ArrayList<Report> reportArrayList;
 
     public User() {
 
