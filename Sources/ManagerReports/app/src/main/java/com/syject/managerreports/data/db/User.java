@@ -4,27 +4,29 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by dimoshka on 19.06.15.
  */
-@DatabaseTable(tableName = "user")
+@DatabaseTable()
 public class User {
 
-    public final static String USER_NAME_FIELD_NAME = "name";
-
     @DatabaseField(generatedId = true)
-    private int Id;
+    public int Id;
 
-    @DatabaseField(canBeNull = false, dataType = DataType.STRING, columnName = USER_NAME_FIELD_NAME)
-    private String name;
+    @DatabaseField(canBeNull = false, dataType = DataType.STRING)
+    public String name;
 
-    @DatabaseField(dataType = DataType.DATE)
-    private Date lastEditDate;
+    @DatabaseField(canBeNull = false, foreign = true)
+    public UserGroup userGroup;
 
-    @DatabaseField()
-    private UserGroup userGroup;
+    @DatabaseField(canBeNull = false, foreign = true)
+    public Meeting meeting;
+
+    @DatabaseField(canBeNull = false, foreign = true)
+    public ArrayList<Phone> phone;
 
     public User() {
 

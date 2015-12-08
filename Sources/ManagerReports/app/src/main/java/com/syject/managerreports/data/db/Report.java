@@ -10,15 +10,18 @@ import java.util.Date;
  * Created by dimoshka on 19.06.15.
  */
 @DatabaseTable()
-public class UserGroup {
+public class Report {
 
     @DatabaseField(generatedId = true)
     public int Id;
 
+    @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
+    public Integer number;
+
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     public String name;
 
-    public UserGroup() {
+    public Report() {
 
     }
 }

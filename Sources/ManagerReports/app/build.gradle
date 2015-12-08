@@ -9,13 +9,13 @@ apt {
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.syject.managerreports"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -35,7 +35,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     //androis support
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
 
     //googleanalitics
     compile 'com.google.android.gms:play-services-analytics:7.3.0'
@@ -51,6 +51,6 @@ dependencies {
     compile 'com.splunk.mint:mint:4.2.1'
 
     // support design
-    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:design:23.1.1'
 
 }

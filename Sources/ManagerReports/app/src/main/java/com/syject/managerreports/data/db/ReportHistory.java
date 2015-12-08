@@ -10,15 +10,21 @@ import java.util.Date;
  * Created by dimoshka on 19.06.15.
  */
 @DatabaseTable()
-public class UserGroup {
+public class ReportHistory {
 
     @DatabaseField(generatedId = true)
     public int Id;
 
-    @DatabaseField(canBeNull = false, dataType = DataType.STRING)
-    public String name;
+    @DatabaseField(canBeNull = false, dataType = DataType.DATE)
+    public Date date;
 
-    public UserGroup() {
+    @DatabaseField(canBeNull = false, foreign = true)
+    public User user;
+
+    @DatabaseField(canBeNull = false, foreign = true)
+    public Report report;
+
+    public ReportHistory() {
 
     }
 }

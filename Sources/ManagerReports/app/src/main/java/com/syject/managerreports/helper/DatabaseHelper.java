@@ -9,6 +9,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.syject.managerreports.data.dao.UserDAO;
+import com.syject.managerreports.data.dao.UserGroupDAO;
 import com.syject.managerreports.data.db.User;
 import com.syject.managerreports.data.db.UserGroup;
 
@@ -23,7 +24,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     //ссылки на DAO соответсвующие сущностям, хранимым в БД
-    private UserDAO goalDao = null;
+    private UserDAO userDao = null;
+    private UserGroupDAO usergroupDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -58,17 +60,24 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    //синглтон для GoalDAO
-    public UserDAO getGoalDAO() throws SQLException, java.sql.SQLException {
-        if (goalDao == null) {
-            goalDao = new UserDAO(getConnectionSource(), User.class);
+    public UserDAO getUserDAO() throws SQLException, java.sql.SQLException {
+        if (userDao == null) {
+            userDao = new UserDAO(getConnectionSource(), User.class);
         }
-        return goalDao;
+        return userDao;
     }
+
+    public UserGroupDAO getUserGroupDAO() throws SQLException, java.sql.SQLException {
+        if (usergroupDao == null) {
+            usergroupDao = new UserGroupDAO(getConnectionSource(), UserGroup.class);
+        }
+        return usergroupDao;
+    }
+
 
     @Override
     public void close() {
         super.close();
-        goalDao = null;
+        userDao = null;
     }
 }
