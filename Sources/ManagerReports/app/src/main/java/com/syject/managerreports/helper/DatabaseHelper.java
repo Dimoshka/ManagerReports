@@ -47,12 +47,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, Meeting.class);
-            TableUtils.createTable(connectionSource, Phone.class);
             TableUtils.createTable(connectionSource, Report.class);
-            TableUtils.createTable(connectionSource, ReportHistory.class);
+            TableUtils.createTable(connectionSource, Meeting.class);
             TableUtils.createTable(connectionSource, UserGroup.class);
+            TableUtils.createTable(connectionSource, Phone.class);
             TableUtils.createTable(connectionSource, User.class);
+            TableUtils.createTable(connectionSource, ReportHistory.class);
         } catch (SQLException e) {
             Log.e(TAG, "error creating DB " + DATABASE_NAME);
             throw new RuntimeException(e);

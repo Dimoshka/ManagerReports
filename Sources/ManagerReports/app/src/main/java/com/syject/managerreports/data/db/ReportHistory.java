@@ -13,7 +13,7 @@ import java.util.Date;
 public class ReportHistory {
 
     @DatabaseField(generatedId = true)
-    public int Id;
+    public int id;
 
     @DatabaseField(canBeNull = false, dataType = DataType.DATE)
     public Date date;

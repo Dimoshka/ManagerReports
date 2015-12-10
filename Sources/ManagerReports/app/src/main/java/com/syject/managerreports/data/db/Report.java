@@ -13,15 +13,23 @@ import java.util.Date;
 public class Report {
 
     @DatabaseField(generatedId = true)
-    public int Id;
+    public int id;
 
     @DatabaseField(canBeNull = false, dataType = DataType.INTEGER)
-    public Integer number;
+    public int number;
 
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     public String name;
 
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    public User user;
+
     public Report() {
 
+    }
+
+    public Report(int number, String name) {
+        this.number=number;
+        this.name=name;
     }
 }

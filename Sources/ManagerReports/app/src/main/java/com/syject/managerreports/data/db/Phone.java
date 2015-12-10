@@ -11,10 +11,14 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Phone {
 
     @DatabaseField(generatedId = true)
-    public int Id;
+    public int id;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    public User user;
 
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     public String phone;
+
 
     public Phone() {
 

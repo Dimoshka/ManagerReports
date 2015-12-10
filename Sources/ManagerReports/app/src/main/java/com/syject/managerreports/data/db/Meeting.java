@@ -11,12 +11,16 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Meeting {
 
     @DatabaseField(generatedId = true)
-    public int Id;
+    public int id;
 
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     public String name;
 
     public Meeting() {
 
+    }
+
+    public Meeting(String name) {
+        this.name=name;
     }
 }

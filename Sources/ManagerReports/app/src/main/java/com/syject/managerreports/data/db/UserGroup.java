@@ -13,12 +13,16 @@ import java.util.Date;
 public class UserGroup {
 
     @DatabaseField(generatedId = true)
-    public int Id;
+    public int id;
 
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     public String name;
 
     public UserGroup() {
 
+    }
+
+    public UserGroup(String name) {
+        this.name=name;
     }
 }

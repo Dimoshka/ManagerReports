@@ -1,7 +1,9 @@
 package com.syject.managerreports.data.db;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ import java.util.Date;
 public class User {
 
     @DatabaseField(generatedId = true)
-    public int Id;
+    public int id;
 
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     public String name;
@@ -25,13 +27,19 @@ public class User {
     @DatabaseField(canBeNull = false, foreign = true)
     public Meeting meeting;
 
-    @DatabaseField(canBeNull = false, foreign = true)
-    public ArrayList<Phone> phoneArrayList;
+    @ForeignCollectionField(eager = false)
+    public ForeignCollection<Phone> phone;
 
-    @DatabaseField(foreign = true)
-    public ArrayList<Report> reportArrayList;
+    @ForeignCollectionField(eager = false)
+    public ForeignCollection<Report> report;
 
     public User() {
 
+    }
+
+    public User(String name, UserGroup userGroup, Meeting meeting) {
+        this.name=name;
+        this.userGroup=userGroup;
+        this.meeting=meeting;
     }
 }
